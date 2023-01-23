@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FT website</title>
-    <meta property="og:title" content="FT website" />
+    <title>Get-a-Copy - FT website</title>
+    <meta property="og:title" content="Get-a-Copy - FT website" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -53,13 +53,13 @@
   </head>
   <body>
     <div>
-      <link href="./home.css" rel="stylesheet" />
+      <link href="./get-a-copy.css" rel="stylesheet" />
       <script
         type="text/javascript"
         src="https://unpkg.com/dangerous-html@0.1.11/dist/default/lib.umd.js"
       ></script>
 
-      <div class="home-container">
+      <div class="get-a-copy-container">
         <header data-role="Header" class="navigation-header">
           <div class="navigation-max-width">
             <div class="navigation-nav">
@@ -146,87 +146,162 @@
             </div>
           </div>
         </header>
-        <main class="home-main"></main>
-        <div class="home-hero">
-          <div class="home-container1">
-            <span class="home-text">
-              <span class="home-text01">Fool Tide</span>
-              <span class="home-text02">is a free newspaper published in</span>
-              <span class="home-text03">Copenhagen, Denmark.</span>
+        <div class="get-a-copy-pricing">
+          <div class="get-a-copy-card">
+            <div class="get-a-copy-container1">
+              <span class="get-a-copy-text">denmark</span>
+              <span class="get-a-copy-text01">35dkk</span>
+            </div>
+            <span class="get-a-copy-text02">
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                lorem lorem, malesuada in metus vitae, scelerisque accumsan
+                ipsum.
+              </span>
+              <span></span>
             </span>
-            <div class="home-btn-group">
-              <a href="get-a-copy.html" class="home-navlink button">
-                GET A COPY
-              </a>
-              <a href="contact.html" class="home-navlink1 button">
-                <span>
-                  <span>CONTACT</span>
-                  <br />
-                </span>
-              </a>
+            <div>
+              <dangerous-html
+                html="<div id='smart-button-container'>
+      <div style='text-align: center;'>
+        <div style='margin-bottom: 1.25rem;'>
+          <p>Number of copies:</p>
+          <select id='item-options'><option value='1 copy' price='0'>1 copy - 0 DKK</option><option value='2 copies' price='15'>2 copies - 15 DKK</option><option value='3 copies' price='30'>3 copies - 30 DKK</option><option value='4 copies' price='45'>4 copies - 45 DKK</option><option value='5 copies' price='60'>5 copies - 60 DKK</option></select>
+          <select style='visibility: hidden' id='quantitySelect'></select>
+        </div>
+      <div id='paypal-button-container'></div>
+      </div>
+    </div>
+    <script src='https://www.paypal.com/sdk/js?client-id=AfobipCYQS_LpA-Zlzvyc7S8d3ioerY5jTtamcpCAo3Snim9o_bNWsyVvF5p7denzUDMFE6Xkw5nNy_d&amp;enable-funding=venmo&amp;currency=DKK' data-sdk-integration-source='button-factory'></script>
+    <script>
+      function initPayPalButton() {
+        var shipping = 35;
+        var itemOptions = document.querySelector('#smart-button-container #item-options');
+    var quantity = parseInt();
+    var quantitySelect = document.querySelector('#smart-button-container #quantitySelect');
+    if (!isNaN(quantity)) {
+      quantitySelect.style.visibility = 'visible';
+    }
+    var orderDescription = 'Number of copies:';
+    if(orderDescription === '') {
+      orderDescription = 'Item';
+    }
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'blue',
+        layout: 'vertical',
+        label: 'buynow',
+        
+      },
+      createOrder: function(data, actions) {
+        var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+        var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute('price'));
+        var tax = (35 === 0 || false) ? 0 : (selectedItemPrice * (parseFloat(35)/100));
+        if(quantitySelect.options.length > 0) {
+          quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+        } else {
+          quantity = 1;
+        }
+
+        tax *= quantity;
+        tax = Math.round(tax * 100) / 100;
+        var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+        priceTotal = Math.round(priceTotal * 100) / 100;
+        var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+
+        return actions.order.create({
+          purchase_units: [{
+            description: orderDescription,
+            amount: {
+              currency_code: 'DKK',
+              value: priceTotal,
+              breakdown: {
+                item_total: {
+                  currency_code: 'DKK',
+                  value: itemTotalValue,
+                },
+                shipping: {
+                  currency_code: 'DKK',
+                  value: shipping,
+                },
+                tax_total: {
+                  currency_code: 'DKK',
+                  value: tax,
+                }
+              }
+            },
+            items: [{
+              name: selectedItemDescription,
+              unit_amount: {
+                currency_code: 'DKK',
+                value: selectedItemPrice,
+              },
+              quantity: quantity
+            }]
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(orderData) {
+          
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+
+        });
+      },
+      onError: function(err) {
+        console.log(err);
+      },
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+    </script>"
+              ></dangerous-html>
             </div>
           </div>
-          <img
-            alt="image"
-            src="public/playground_assets/4lqb1xar8kvqci1ighcjoyxc9fhkrij3nigcxbon-500h.png"
-            class="home-image"
-          />
-        </div>
-        <div class="section-container">
-          <div class="max-content-container">
-            <div class="home-top-part">
-              <div class="home-subscribe-container">
-                <span class="home-text07">
-                  <span>FOOL TIDE NEWSLETTER</span>
-                  <br />
+          <div class="get-a-copy-card1">
+            <div class="get-a-copy-container2">
+              <span class="get-a-copy-text05">europe</span>
+              <span class="get-a-copy-text06">50dkk</span>
+            </div>
+            <span class="get-a-copy-text07">
+              <span class="get-a-copy-text08">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                  lorem lorem, malesuada in metus vitae, scelerisque accumsan
+                  ipsum.
                 </span>
-                <div class="home-div">
-                  <dangerous-html
-                    html="<!-- Begin Mailchimp Signup Form -->
-<link href='//cdn-images.mailchimp.com/embedcode/classic-071822.css' rel='stylesheet' type='text/css'>
-<style type='text/css'>
-	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-    
-    #mc-embedded-subscribe { background-color: #3333ff !important; }
-    #mc-embedded-subscribe:hover { background-color: #000066 !important; }
-</style>
-<div id='mc_embed_signup'>
-
-    <form action='https://gmail.us21.list-manage.com/subscribe/post?u=91d63f6b4854567175146bb7a&amp;id=c833c9da06&amp;f_id=0079d5e1f0' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
-        <div id='mc_embed_signup_scroll'>
-
-
-              
-              
-              
-
-<div class='mc-field-group'>
-	<label for='mce-EMAIL'>find out when new issues hit the street. enter email address:
-</label>
-	<input type='email' value='' name='EMAIL' class='required email' id='mce-EMAIL' required>
-	<span id='mce-EMAIL-HELPERTEXT' class='helper_text'></span>
-</div>
-	<div id='mce-responses' class='clear foot'>
-		<div class='response' id='mce-error-response' style='display:none'></div>
-		<div class='response' id='mce-success-response' style='display:none'></div>
-        
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_91d63f6b4854567175146bb7a_c833c9da06' tabindex='-1' value=''></div>
-        <div class='optionalParent'>
-            <div class='clear foot'>
-                <input type='submit' value='SUBSCRIBE' name='subscribe' id='mc-embedded-subscribe' class='button'>
+                <span></span>
+              </span>
+              <span></span>
+            </span>
+            <button class="get-a-copy-button button">Learn More</button>
+          </div>
+          <div class="get-a-copy-card2">
+            <div class="get-a-copy-container3">
+              <span class="get-a-copy-text12">world</span>
+              <span class="get-a-copy-text13">65dkk</span>
             </div>
-        </div>
-    </div>
-</form>
-</div>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<!--End mc_embed_signup-->"
-                  ></dangerous-html>
-                </div>
-              </div>
-            </div>
+            <span class="get-a-copy-text14">
+              <span class="get-a-copy-text15">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                  lorem lorem, malesuada in metus vitae, scelerisque accumsan
+                  ipsum.
+                </span>
+                <span></span>
+              </span>
+              <span></span>
+            </span>
+            <button class="get-a-copy-button1 button">Learn More</button>
           </div>
         </div>
       </div>
