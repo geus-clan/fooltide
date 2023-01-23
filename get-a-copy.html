@@ -143,38 +143,48 @@
           </div>
         </header>
         <span></span>
-        <span class="get-a-copy-text01">
-          <span class="get-a-copy-text02">
-            Get a copy of fool tide shipped to your door :)
+        <div class="get-a-copy-container1">
+          <span>
+            <span>Get a copy of fool tide shipped to your door :)</span>
+            <br />
+            <span>world shipping for 35 kr</span>
+            <br />
+            <span class="get-a-copy-text06">SEND US AN EMAIL (</span>
+            <span class="get-a-copy-text07">TIDEFOOL AT GMAIL DOT COM)</span>
+            <br class="get-a-copy-text08" />
+            <br class="get-a-copy-text09" />
+            <span class="get-a-copy-text10">
+              OR USE OUR CONVENIENT "PAY WHAT YOU WANT" ORDER FORM BELOW:
+            </span>
+            <br class="get-a-copy-text11" />
+            <span class="get-a-copy-text12">
+              LET US KNOW HOW MANY COPIES YOU WANT, AND FEEL FREE TO ADD A
+              MESSAGE TO THE MESSAGE BOARD :)
+            </span>
+            <br />
+            <br />
+            <br />
           </span>
-          <br class="get-a-copy-text03" />
-          <span class="get-a-copy-text04">world shipping for 35 kr</span>
-          <br class="get-a-copy-text05" />
-          <br class="get-a-copy-text06" />
-          <span>SEND US AN EMAIL</span>
+        </div>
+        <span class="get-a-copy-text16">
           <br />
-          <span>TIDEFOOL AT GMAIL DOT COM</span>
           <br />
-
-          <span>OR USE OUR CONVENIENT "PAY WHAT YOU WANT" ORDER FORM BELOW:</span>
           <br />
-
-          <span>let us know how many copies you want, and feel free to add a message to the message board</span>
           <br />
-
           <br />
         </span>
-        <div>
-         <div id="smart-button-container">
-    <div style="text-align: center"><label for="description">Message: </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="e.g. "ONE COPY PLEASE. MESSAGE FOR MESSAGE BOARD: 'PORRIDGE WITH RAISINS FOR BREAKFAST TODAY'"></div>
-      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
-    <div style="text-align: center"><label for="amount">Amount (minimum 35dkk): </label><input name="amountInput" type="number" id="amount" value="35" ><span> DKK</span></div>
-      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
-    <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
-      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
-    <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+        <div class="get-a-copy-div">
+          <dangerous-html
+            html="<div id='smart-button-container'>
+    <div style='text-align: center'><label for='description'>Message: (e.g. 'ONE COPY PLEASE. MESSAGE BOARD: 'PORRIDGE WITH RAISINS FOR BREAKFAST TODAY'') </label><input type='text' name='descriptionInput' id='description' maxlength='127' value=''></div>
+      <p id='descriptionError' style='visibility: hidden; color:red; text-align: center;'>Please enter a message</p>
+    <div style='text-align: center'><label for='amount'>Amount (min. 35kr for shipping): </label><input name='amountInput' type='number' id='amount' value='35' ><span> DKK</span></div>
+      <p id='priceLabelError' style='visibility: hidden; color:red; text-align: center;'>Please enter a price</p>
+    <div id='invoiceidDiv' style='text-align: center; display: none;'><label for='invoiceid'> </label><input name='invoiceid' maxlength='127' type='text' id='invoiceid' value='' ></div>
+      <p id='invoiceidError' style='visibility: hidden; color:red; text-align: center;'>Please enter an Invoice ID</p>
+    <div style='text-align: center; margin-top: 0.625rem;' id='paypal-button-container'></div>
   </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=AfobipCYQS_LpA-Zlzvyc7S8d3ioerY5jTtamcpCAo3Snim9o_bNWsyVvF5p7denzUDMFE6Xkw5nNy_d&enable-funding=venmo&currency=DKK" data-sdk-integration-source="button-factory"></script>
+  <script src='https://www.paypal.com/sdk/js?client-id=AfobipCYQS_LpA-Zlzvyc7S8d3ioerY5jTtamcpCAo3Snim9o_bNWsyVvF5p7denzUDMFE6Xkw5nNy_d&amp;enable-funding=venmo&amp;currency=DKK' data-sdk-integration-source='button-factory'></script>
   <script>
   function initPayPalButton() {
     var description = document.querySelector('#smart-button-container #description');
@@ -188,7 +198,7 @@
     var elArr = [description, amount];
 
     if (invoiceidDiv.firstChild.innerHTML.length > 1) {
-      invoiceidDiv.style.display = "block";
+      invoiceidDiv.style.display = 'block';
     }
 
     var purchase_units = [];
@@ -211,7 +221,7 @@
       onInit: function (data, actions) {
         actions.disable();
 
-        if(invoiceidDiv.style.display === "block") {
+        if(invoiceidDiv.style.display === 'block') {
           elArr.push(invoiceid);
         }
 
@@ -229,21 +239,21 @@
 
       onClick: function () {
         if (description.value.length < 1) {
-          descriptionError.style.visibility = "visible";
+          descriptionError.style.visibility = 'visible';
         } else {
-          descriptionError.style.visibility = "hidden";
+          descriptionError.style.visibility = 'hidden';
         }
 
         if (amount.value.length < 1) {
-          priceError.style.visibility = "visible";
+          priceError.style.visibility = 'visible';
         } else {
-          priceError.style.visibility = "hidden";
+          priceError.style.visibility = 'hidden';
         }
 
-        if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
-          invoiceidError.style.visibility = "visible";
+        if (invoiceid.value.length < 1 &amp;&amp; invoiceidDiv.style.display === 'block') {
+          invoiceidError.style.visibility = 'visible';
         } else {
-          invoiceidError.style.visibility = "hidden";
+          invoiceidError.style.visibility = 'hidden';
         }
 
         purchase_units[0].description = description.value;
@@ -282,8 +292,8 @@
     }).render('#paypal-button-container');
   }
   initPayPalButton();
-  </script>
-
+  </script>"
+          ></dangerous-html>
         </div>
       </div>
     </div>
