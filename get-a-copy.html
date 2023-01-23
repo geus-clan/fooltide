@@ -146,105 +146,125 @@
             </div>
           </div>
         </header>
-        <div class="get-a-copy-pricing">
-          <div class="get-a-copy-card">
-            <div class="get-a-copy-container1">
-              <span class="get-a-copy-text">denmark</span>
-              <span class="get-a-copy-text01">35dkk</span>
-            </div>
-            <span class="get-a-copy-text02">
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                ipsum.
-              </span>
-              <span></span>
-            </span>
-            <div>
-              <dangerous-html
-                html="<div id='smart-button-container'>
-      <div style='text-align: center;'>
-        <div style='margin-bottom: 1.25rem;'>
-          <p>Number of copies:</p>
-          <select id='item-options'><option value='1 copy' price='0'>1 copy - 0 DKK</option><option value='2 copies' price='15'>2 copies - 15 DKK</option><option value='3 copies' price='30'>3 copies - 30 DKK</option><option value='4 copies' price='45'>4 copies - 45 DKK</option><option value='5 copies' price='60'>5 copies - 60 DKK</option></select>
-          <select style='visibility: hidden' id='quantitySelect'></select>
-        </div>
-      <div id='paypal-button-container'></div>
-      </div>
-    </div>
-    <script src='https://www.paypal.com/sdk/js?client-id=AfobipCYQS_LpA-Zlzvyc7S8d3ioerY5jTtamcpCAo3Snim9o_bNWsyVvF5p7denzUDMFE6Xkw5nNy_d&amp;enable-funding=venmo&amp;currency=DKK' data-sdk-integration-source='button-factory'></script>
-    <script>
-      function initPayPalButton() {
-        var shipping = 35;
-        var itemOptions = document.querySelector('#smart-button-container #item-options');
-    var quantity = parseInt();
-    var quantitySelect = document.querySelector('#smart-button-container #quantitySelect');
-    if (!isNaN(quantity)) {
-      quantitySelect.style.visibility = 'visible';
+        <span></span>
+        <span class="get-a-copy-text01">
+          <span class="get-a-copy-text02">
+            Get a copy of fool tide shipped to your door :)
+          </span>
+          <br class="get-a-copy-text03" />
+          <span class="get-a-copy-text04">world shipping for 35 kr</span>
+          <br class="get-a-copy-text05" />
+          <br class="get-a-copy-text06" />
+          <span class="get-a-copy-text07">want more than 1 copy? great!</span>
+          <br class="get-a-copy-text08" />
+          <span class="get-a-copy-text09">
+            want more than 5 copies? send us an email?
+          </span>
+          <br />
+          <br />
+          <br />
+          <br />
+        </span>
+        <div>
+          <dangerous-html
+            html="<div id='smart-button-container'>
+    <div style='text-align: center'><label for='description'>Message: </label><input type='text' name='descriptionInput' id='description' maxlength='127' value=''></div>
+      <p id='descriptionError' style='visibility: hidden; color:red; text-align: center;'>Please enter a message</p>
+    <div style='text-align: center'><label for='amount'>Amount: </label><input name='amountInput' type='number' id='amount' value='35' ><span> DKK</span></div>
+      <p id='priceLabelError' style='visibility: hidden; color:red; text-align: center;'>Please enter a price</p>
+    <div id='invoiceidDiv' style='text-align: center; display: none;'><label for='invoiceid'> </label><input name='invoiceid' maxlength='127' type='text' id='invoiceid' value='' ></div>
+      <p id='invoiceidError' style='visibility: hidden; color:red; text-align: center;'>Please enter an Invoice ID</p>
+    <div style='text-align: center; margin-top: 0.625rem;' id='paypal-button-container'></div>
+  </div>
+  <script src='https://www.paypal.com/sdk/js?client-id=AfobipCYQS_LpA-Zlzvyc7S8d3ioerY5jTtamcpCAo3Snim9o_bNWsyVvF5p7denzUDMFE6Xkw5nNy_d&amp;enable-funding=venmo&amp;currency=DKK' data-sdk-integration-source='button-factory'></script>
+  <script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = 'block';
     }
-    var orderDescription = 'Number of copies:';
-    if(orderDescription === '') {
-      orderDescription = 'Item';
+
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
+
+    function validate(event) {
+      return event.value.length > 0;
     }
+
     paypal.Buttons({
       style: {
+        color: 'gold',
         shape: 'rect',
-        color: 'blue',
+        label: 'paypal',
         layout: 'vertical',
-        label: 'buynow',
         
       },
-      createOrder: function(data, actions) {
-        var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
-        var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute('price'));
-        var tax = (35 === 0 || false) ? 0 : (selectedItemPrice * (parseFloat(35)/100));
-        if(quantitySelect.options.length > 0) {
-          quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
-        } else {
-          quantity = 1;
+
+      onInit: function (data, actions) {
+        actions.disable();
+
+        if(invoiceidDiv.style.display === 'block') {
+          elArr.push(invoiceid);
         }
 
-        tax *= quantity;
-        tax = Math.round(tax * 100) / 100;
-        var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
-        priceTotal = Math.round(priceTotal * 100) / 100;
-        var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
-
-        return actions.order.create({
-          purchase_units: [{
-            description: orderDescription,
-            amount: {
-              currency_code: 'DKK',
-              value: priceTotal,
-              breakdown: {
-                item_total: {
-                  currency_code: 'DKK',
-                  value: itemTotalValue,
-                },
-                shipping: {
-                  currency_code: 'DKK',
-                  value: shipping,
-                },
-                tax_total: {
-                  currency_code: 'DKK',
-                  value: tax,
-                }
-              }
-            },
-            items: [{
-              name: selectedItemDescription,
-              unit_amount: {
-                currency_code: 'DKK',
-                value: selectedItemPrice,
-              },
-              quantity: quantity
-            }]
-          }]
+        elArr.forEach(function (item) {
+          item.addEventListener('keyup', function (event) {
+            var result = elArr.every(validate);
+            if (result) {
+              actions.enable();
+            } else {
+              actions.disable();
+            }
+          });
         });
       },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(orderData) {
-          
+
+      onClick: function () {
+        if (description.value.length < 1) {
+          descriptionError.style.visibility = 'visible';
+        } else {
+          descriptionError.style.visibility = 'hidden';
+        }
+
+        if (amount.value.length < 1) {
+          priceError.style.visibility = 'visible';
+        } else {
+          priceError.style.visibility = 'hidden';
+        }
+
+        if (invoiceid.value.length < 1 &amp;&amp; invoiceidDiv.style.display === 'block') {
+          invoiceidError.style.visibility = 'visible';
+        } else {
+          invoiceidError.style.visibility = 'hidden';
+        }
+
+        purchase_units[0].description = description.value;
+        purchase_units[0].amount.value = amount.value;
+
+        if(invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+        }
+      },
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+
           // Full available details
           console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
 
@@ -254,55 +274,18 @@
           element.innerHTML = '<h3>Thank you for your payment!</h3>';
 
           // Or go to another URL:  actions.redirect('thank_you.html');
-
+          
         });
       },
-      onError: function(err) {
+
+      onError: function (err) {
         console.log(err);
-      },
+      }
     }).render('#paypal-button-container');
   }
   initPayPalButton();
-    </script>"
-              ></dangerous-html>
-            </div>
-          </div>
-          <div class="get-a-copy-card1">
-            <div class="get-a-copy-container2">
-              <span class="get-a-copy-text05">europe</span>
-              <span class="get-a-copy-text06">50dkk</span>
-            </div>
-            <span class="get-a-copy-text07">
-              <span class="get-a-copy-text08">
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                  ipsum.
-                </span>
-                <span></span>
-              </span>
-              <span></span>
-            </span>
-            <button class="get-a-copy-button button">Learn More</button>
-          </div>
-          <div class="get-a-copy-card2">
-            <div class="get-a-copy-container3">
-              <span class="get-a-copy-text12">world</span>
-              <span class="get-a-copy-text13">65dkk</span>
-            </div>
-            <span class="get-a-copy-text14">
-              <span class="get-a-copy-text15">
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                  ipsum.
-                </span>
-                <span></span>
-              </span>
-              <span></span>
-            </span>
-            <button class="get-a-copy-button1 button">Learn More</button>
-          </div>
+  </script>"
+          ></dangerous-html>
         </div>
       </div>
     </div>
