@@ -54,10 +54,6 @@
   <body>
     <div>
       <link href="./contact.css" rel="stylesheet" />
-      <script
-        type="text/javascript"
-        src="https://unpkg.com/dangerous-html@0.1.11/dist/default/lib.umd.js"
-      ></script>
 
       <div class="contact-container">
         <header
@@ -147,6 +143,31 @@
           </div>
         </main>
         <div class="contact-container1">
+          <form
+            action="https://formsubmit.co/tidefool@gmail.com"
+            method="POST"
+            enctype="application/x-www-form-urlencoded"
+            class="contact-form"
+          >
+            <input
+              type="text"
+              placeholder="name"
+              name="name"
+              required=""
+              class="contact-textinput input"
+            />
+            <input
+              type="text"
+              placeholder="email"
+              name="email"
+              class="contact-textinput1 input"
+            />
+            <textarea
+              placeholder="message"
+              class="contact-textarea textarea"
+            ></textarea>
+            <button type="submit" class="contact-button button">SEND</button>
+          </form>
           <span class="contact-text">
             <span class="contact-text01">Send</span>
             <span class="contact-text02">
@@ -155,7 +176,7 @@
             <br class="contact-text03" />
             <span class="contact-text04"></span>
             <br class="contact-text05" />
-            <span class="contact-text06">tidefool at gmail.com</span>
+            <span class="contact-text06">tidefool @ gmail.com</span>
             <br class="contact-text07" />
             <br class="contact-text08" />
             <span class="contact-text09">or</span>
@@ -175,31 +196,11 @@
             class="contact-image"
           />
         </div>
-        <div class="contact-div">
-          <dangerous-html
-            html="<div class='container'>
-  <h1></h1>
-  <form target='_blank' action='https://formsubmit.co/tidefool@gmail.com' method='POST'>
-    <div class='form-group'>
-      <div class='form-row'>
-        <div class='col'>
-          <input type='text' name='name' class='form-control' placeholder='Name' required>
-        </div>
-        <br>
-        <div class='col'>
-          <input type='email' name='email' class='form-control' placeholder='Email Address' required>
-        </div>
-        <br>
-      </div>
-    </div>
-    <div class='form-group'>
-      <textarea placeholder='Message' class='form-control' name='message' rows='10' required></textarea>
-    </div>
-    <br>
-    <button type='submit' class='btn btn-lg btn-dark btn-block'>Send</button>
-  </form>
-</div>"
-          ></dangerous-html>
+        <div class="contact-container2">
+          <span class="contact-text19">
+            <br class="contact-text20" />
+            <br class="contact-text21" />
+          </span>
         </div>
       </div>
     </div>
