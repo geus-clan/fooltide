@@ -54,9 +54,16 @@
   <body>
     <div>
       <link href="./contact.css" rel="stylesheet" />
+      <script
+        type="text/javascript"
+        src="https://unpkg.com/dangerous-html@0.1.11/dist/default/lib.umd.js"
+      ></script>
 
       <div class="contact-container">
-        <header data-role="Header" class="navigation-header">
+        <header
+          data-role="Header"
+          class="navigation-header navigation-root-class-name1"
+        >
           <div class="navigation-max-width">
             <div class="navigation-nav">
               <nav
@@ -68,9 +75,6 @@
                 >
                   <span>HOME</span>
                 </a>
-                <span class="navigation-links-text Navigation-Link">
-                  <span>ISSUES</span>
-                </span>
                 <a
                   href="get-a-copy.html"
                   class="navigation-links-navlink1 Navigation-Link"
@@ -115,9 +119,6 @@
                   >
                     <span>HOME</span>
                   </a>
-                  <span class="navigation-links-text Navigation-Link">
-                    <span>ISSUES</span>
-                  </span>
                   <a
                     href="get-a-copy.html"
                     class="navigation-links-navlink1 Navigation-Link"
@@ -173,6 +174,32 @@
             src="public/playground_assets/foxacid-300h.png"
             class="contact-image"
           />
+        </div>
+        <div class="contact-div">
+          <dangerous-html
+            html="<div class='container'>
+  <h1></h1>
+  <form target='_blank' action='https://formsubmit.co/tidefool@gmail.com' method='POST'>
+    <div class='form-group'>
+      <div class='form-row'>
+        <div class='col'>
+          <input type='text' name='name' class='form-control' placeholder='Name' required>
+        </div>
+        <br>
+        <div class='col'>
+          <input type='email' name='email' class='form-control' placeholder='Email Address' required>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class='form-group'>
+      <textarea placeholder='Message' class='form-control' name='message' rows='10' required></textarea>
+    </div>
+    <br>
+    <button type='submit' class='btn btn-lg btn-dark btn-block'>Send</button>
+  </form>
+</div>"
+          ></dangerous-html>
         </div>
       </div>
     </div>

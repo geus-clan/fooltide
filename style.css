@@ -17,7 +17,6 @@
   --dl-space-space-sixunits: 96px;
   --dl-space-space-twounits: 32px;
   --dl-color-scheme-darkblue: #191919ff;
-  --dl-color-scheme-darkgray: #9095a7ff;
   --dl-radius-radius-radius2: 2px;
   --dl-radius-radius-radius4: 4px;
   --dl-radius-radius-radius8: 8px;
@@ -25,7 +24,7 @@
   --dl-space-space-fourunits: 64px;
   --dl-color-scheme-lightblue: #162d5aff;
   --dl-space-space-threeunits: 48px;
-  --dl-color-scheme-lightbrown: #f9f4f0ff;
+  --dl-color-scheme-lightbrown: #ffffffff;
   --dl-space-space-oneandhalfunits: 24px;
 }
 .button {

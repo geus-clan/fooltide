@@ -60,7 +60,10 @@
       ></script>
 
       <div class="home-container">
-        <header data-role="Header" class="navigation-header">
+        <header
+          data-role="Header"
+          class="navigation-header navigation-root-class-name"
+        >
           <div class="navigation-max-width">
             <div class="navigation-nav">
               <nav
@@ -72,9 +75,6 @@
                 >
                   <span>HOME</span>
                 </a>
-                <span class="navigation-links-text Navigation-Link">
-                  <span>ISSUES</span>
-                </span>
                 <a
                   href="get-a-copy.html"
                   class="navigation-links-navlink1 Navigation-Link"
@@ -119,9 +119,6 @@
                   >
                     <span>HOME</span>
                   </a>
-                  <span class="navigation-links-text Navigation-Link">
-                    <span>ISSUES</span>
-                  </span>
                   <a
                     href="get-a-copy.html"
                     class="navigation-links-navlink1 Navigation-Link"
@@ -149,8 +146,12 @@
             src="public/playground_assets/4lqb1xar8kvqci1ighcjoyxc9fhkrij3nigcxbon-500h.png"
             class="home-image"
           />
-          <div class="home-container1">
-            <span>FOOL TIDE NEWSLETTER&nbsp;</span>
+          <div class="home-container1"></div>
+        </div>
+        <div class="home-container2">
+          <div class="home-container3"></div>
+          <div class="home-container4">
+            <span class="home-text">FOOL TIDE NEWSLETTER&nbsp;</span>
             <div class="home-div">
               <dangerous-html
                 html="<!-- Begin Mailchimp Signup Form -->
@@ -173,9 +174,8 @@
               
 
 <div class='mc-field-group'>
-	<label for='mce-EMAIL'>enter email address:
-</label>
-	<input type='email' value='' name='EMAIL' class='required email' id='mce-EMAIL' required>
+
+	<input type='email' value='email @ email' name='EMAIL' class='required email' id='mce-EMAIL' required>
 	<span id='mce-EMAIL-HELPERTEXT' class='helper_text'></span>
 </div>
 	<div id='mce-responses' class='clear foot'>
