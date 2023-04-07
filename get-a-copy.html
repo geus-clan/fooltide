@@ -60,33 +60,239 @@
       ></script>
 
       <div class="get-a-copy-container">
-        <header
-          data-role="Header"
-          class="navigation-header navigation-root-class-name2"
-        >
-          <nav class="navigation-nav">
-            <a href="index.html" class="navigation-navlink Navigation-Link">
-              <span>HOME</span>
-            </a>
-            <a
-              href="get-a-copy.html"
-              class="navigation-navlink1 Navigation-Link"
-            >
-              <span>GET A COPY</span>
-            </a>
-            <a href="contact.html" class="navigation-navlink2 Navigation-Link">
-              <span>CONTACT</span>
-            </a>
-          </nav>
+        <header data-role="Header" class="navigation-header">
+          <div class="navigation-max-width">
+            <div class="navigation-nav">
+              <nav
+                class="navigation-links-nav navigation-links-root-class-name17"
+              >
+                <a
+                  href="index.html"
+                  class="navigation-links-navlink Navigation-Link"
+                >
+                  <span>HOME</span>
+                </a>
+                <span class="navigation-links-text Navigation-Link">
+                  <span>ISSUES</span>
+                </span>
+                <a
+                  href="get-a-copy.html"
+                  class="navigation-links-navlink1 Navigation-Link"
+                >
+                  <span>GET A COPY</span>
+                </a>
+                <a
+                  href="contact.html"
+                  class="navigation-links-navlink2 Navigation-Link"
+                >
+                  <span>CONTACT</span>
+                </a>
+              </nav>
+            </div>
+            <div data-role="BurgerMenu" class="navigation-burger-menu">
+              <svg viewBox="0 0 1024 1024" class="navigation-icon">
+                <path
+                  d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+              </svg>
+            </div>
+            <div data-role="MobileMenu" class="mobile-menu">
+              <div class="navigation-nav1">
+                <div class="navigation-container">
+                  <div
+                    data-role="CloseMobileMenu"
+                    class="navigation-close-mobile-menu"
+                  >
+                    <svg viewBox="0 0 1024 1024" class="navigation-icon2">
+                      <path
+                        d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <nav
+                  class="navigation-links-nav navigation-links-root-class-name18"
+                >
+                  <a
+                    href="index.html"
+                    class="navigation-links-navlink Navigation-Link"
+                  >
+                    <span>HOME</span>
+                  </a>
+                  <span class="navigation-links-text Navigation-Link">
+                    <span>ISSUES</span>
+                  </span>
+                  <a
+                    href="get-a-copy.html"
+                    class="navigation-links-navlink1 Navigation-Link"
+                  >
+                    <span>GET A COPY</span>
+                  </a>
+                  <a
+                    href="contact.html"
+                    class="navigation-links-navlink2 Navigation-Link"
+                  >
+                    <span>CONTACT</span>
+                  </a>
+                </nav>
+                <button class="button-secondary button button-md">
+                  <span>Get in touch</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </header>
-        <span class="get-a-copy-text">
-          <span class="get-a-copy-text1">ISSUE 2</span>
-          <br class="get-a-copy-text2" />
-          <span class="get-a-copy-text3">:) Coming soon&nbsp; :)</span>
-          <br class="get-a-copy-text4" />
-
+        <span></span>
+        <div class="get-a-copy-container1">
+          <span>
+            <span>Get a copy of fool tide shipped to your door :)</span>
+            <br />
+            <span>world shipping for 35 kr</span>
+            <br />
+            <span class="get-a-copy-text06">SEND US AN EMAIL (</span>
+            <span class="get-a-copy-text07">TIDEFOOL AT GMAIL DOT COM)</span>
+            <br class="get-a-copy-text08" />
+            <br class="get-a-copy-text09" />
+            <span class="get-a-copy-text10">
+              OR USE OUR CONVENIENT "PAY WHAT YOU WANT" ORDER FORM BELOW:
+            </span>
+            <br class="get-a-copy-text11" />
+            <span class="get-a-copy-text12">
+              LET US KNOW HOW MANY COPIES YOU WANT, AND FEEL FREE TO ADD A
+              MESSAGE TO THE MESSAGE BOARD :)
+            </span>
+            <br />
+            <br />
+            <br />
+          </span>
+        </div>
+        <span class="get-a-copy-text16">
+          <br />
+          <br />
+          <br />
+          <br />
           <br />
         </span>
+        <div class="get-a-copy-div">
+         <div id='smart-button-container'>
+    <div style='text-align: center'><label for='description'>Message: (e.g. 'ONE COPY PLEASE. MESSAGE BOARD: 'PORRIDGE WITH RAISINS FOR BREAKFAST TODAY'') </label><input type='text' name='descriptionInput' id='description' maxlength='127' value=''></div>
+      <p id='descriptionError' style='visibility: hidden; color:red; text-align: center;'>Please enter a message</p>
+    <div style='text-align: center'><label for='amount'>Amount (min. 35kr for shipping): </label><input name='amountInput' type='number' id='amount' value='35' ><span> DKK</span></div>
+      <p id='priceLabelError' style='visibility: hidden; color:red; text-align: center;'>Please enter a price</p>
+    <div id='invoiceidDiv' style='text-align: center; display: none;'><label for='invoiceid'> </label><input name='invoiceid' maxlength='127' type='text' id='invoiceid' value='' ></div>
+      <p id='invoiceidError' style='visibility: hidden; color:red; text-align: center;'>Please enter an Invoice ID</p>
+    <div style='text-align: center; margin-top: 0.625rem;' id='paypal-button-container'></div>
+  </div>
+  <script src='https://www.paypal.com/sdk/js?client-id=AfobipCYQS_LpA-Zlzvyc7S8d3ioerY5jTtamcpCAo3Snim9o_bNWsyVvF5p7denzUDMFE6Xkw5nNy_d&amp;enable-funding=venmo&amp;currency=DKK' data-sdk-integration-source='button-factory'></script>
+  <script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = 'block';
+    }
+
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
+
+    function validate(event) {
+      return event.value.length > 0;
+    }
+
+    paypal.Buttons({
+      style: {
+        color: 'gold',
+        shape: 'rect',
+        label: 'paypal',
+        layout: 'vertical',
+        
+      },
+
+      onInit: function (data, actions) {
+        actions.disable();
+
+        if(invoiceidDiv.style.display === 'block') {
+          elArr.push(invoiceid);
+        }
+
+        elArr.forEach(function (item) {
+          item.addEventListener('keyup', function (event) {
+            var result = elArr.every(validate);
+            if (result) {
+              actions.enable();
+            } else {
+              actions.disable();
+            }
+          });
+        });
+      },
+
+      onClick: function () {
+        if (description.value.length < 1) {
+          descriptionError.style.visibility = 'visible';
+        } else {
+          descriptionError.style.visibility = 'hidden';
+        }
+
+        if (amount.value.length < 1) {
+          priceError.style.visibility = 'visible';
+        } else {
+          priceError.style.visibility = 'hidden';
+        }
+
+        if (invoiceid.value.length < 1 &amp;&amp; invoiceidDiv.style.display === 'block') {
+          invoiceidError.style.visibility = 'visible';
+        } else {
+          invoiceidError.style.visibility = 'hidden';
+        }
+
+        purchase_units[0].description = description.value;
+        purchase_units[0].amount.value = amount.value;
+
+        if(invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+        }
+      },
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+          
+        });
+      },
+
+      onError: function (err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+  </script>
+        </div>
       </div>
     </div>
     <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
