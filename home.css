@@ -171,9 +171,6 @@
 @media(max-width: 479px) {
   .home-container1 {
     width: 100%;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
   }
   .home-container3 {
     width: 100%;
