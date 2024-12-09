@@ -30,7 +30,7 @@
     </style>
     <link
       rel="shortcut icon"
-      href="public/ft_favicon.png"
+      href="public/playground_assets/ft_favicon.png"
       type="icon/png"
       sizes="32x32"
     />
@@ -49,13 +49,17 @@
       background-color: #fff
       }
     </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <link rel="stylesheet" href="./style.css" />
     <div>
       <link href="./get-a-copy.css" rel="stylesheet" />
+      <script
+        type="text/javascript"
+        src="https://unpkg.com/dangerous-html@0.1.12/dist/default/lib.umd.js"
+      ></script>
 
-      <div class="get-a-copy-container">
+      <div class="get--copy-container">
         <header
           data-role="Header"
           class="navigation-header navigation-root-class-name2"
@@ -73,14 +77,9 @@
             <a href="contact.html" class="navigation-navlink2 Navigation-Link">
               <span>CONTACT</span>
             </a>
-            <a
-              href="advertise.html"
-              class="navigation-navlink3 Navigation-Link"
-            >
-              <span>ADVERTISE</span>
-            </a>
           </nav>
         </header>
+<<<<<<< HEAD
         <span class="get-a-copy-text">
           <span class="get-a-copy-text1">ISSUE 3</span>
           <br class="get-a-copy-text2" />
@@ -120,6 +119,27 @@
               />
             </form>
           </div>
+=======
+        <span class="get--copy-text">
+          <span class="get--copy-text1">ISSUE 2</span>
+          <br class="get--copy-text2" />
+          <span class="get--copy-text3">:) Now shipping&nbsp; :)</span>
+          <br class="get--copy-text4" />
+          <br class="get--copy-text5" />
+          <span class="get--copy-text6">World delivery 40dkk</span>
+          <br />
+        </span>
+        <div class="get--copy-container1"></div>
+        <div class="get--copy-div">
+          <dangerous-html
+            html="<form action='https://www.paypal.com/donate' method='post' target='_top'>
+<input type='hidden' name='hosted_button_id' value='UFQNZ5SCWLENY' />
+<input type='image' src='https://pics.paypal.com/00/s/OTE4MWJlMGYtMDJkNy00MTE1LTlkNzktOWE3ZmMyOTg4MjQ1/file.PNG' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
+<img alt='' border='0' src='https://www.paypal.com/en_DK/i/scr/pixel.gif' width='1' height='1' />
+</form>
+"
+          ></dangerous-html>
+>>>>>>> parent of 8cb1341 (contact form change, buy button removed)
         </div>
       </div>
     </div>
