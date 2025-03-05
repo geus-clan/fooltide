@@ -138,13 +138,6 @@
 .get-a-copy-text4 {
   color: #ffffff;
 }
-.get-a-copy-text5 {
-  color: #ffffff;
-}
-.get-a-copy-text6 {
-  color: #ffffff;
-  text-transform: uppercase;
-}
 .get-a-copy-container1 {
   flex: 0 0 auto;
   width: 100%;
@@ -155,13 +148,4 @@
   border-style: dashed;
   border-width: 0px;
   justify-content: center;
-}
-.get-a-copy-container2 {
-  box-shadow: 0px 0px 10px 1px #3d43af;
-  border-color: #151679;
-  border-style: ridge;
-  border-width: 5px;
-}
-.get-a-copy-container3 {
-  display: contents;
 }
